@@ -1,18 +1,4 @@
 # CareerLink
-Contexte du projet
-🎯 Objectifs d’apprentissage
-À travers ce projet, l’apprenant devra être capable de :
-
-Adoption de l’architecture MVC pour une meilleure séparation des responsabilités
-Utilisation du Repository Pattern pour isoler l’accès aux données
-Utiliser PDO pour l’accès sécurisé à une base de données
-Implémenter un système d’authentification avec gestion des rôles
-Manipuler les sessions et les cookies
-Gérer l’archivage des données (Soft Delete)
-Utiliser AJAX pour des interactions dynamiques côté client
-Upload des fichiers (CV/Images)
----
-
 🧠 Contexte du projet
 CareerLink est une plateforme destinée à faciliter la mise en relation entre candidats, recruteurs et administrateurs, dans différents secteurs d’activité.
 
@@ -52,33 +38,3 @@ Interface affichant des statistiques clés :
 nombre d’offres par catégorie,
 tags les plus utilisés,
 recruteurs les plus actifs (basé sur le nombre d’offres publiées).
----
-
-🌐 Front Office (Candidats & Visiteurs)
-Authentification (Login / Register)
-Inscription des utilisateurs avec nom, e-mail et mot de passe.
-Connexion sécurisée.
-Redirection selon le rôle :
-administrateurs → tableau de bord admin,
-recruteurs et candidats → espace personnel.
-Recherche dynamique d’offres
-Barre de recherche interactive utilisant AJAX.
-Filtres disponibles :
-mots-clés,
-catégories,
-tags.
-Affichage du contenu
-Dernières offres d’emploi : affichage des offres récentes avec poste, entreprise et localisation.
-Catégories et tags : mise en avant des catégories et tags populaires ou récemment ajoutés.
-Page dédiée à une offre :
-description complète (poste, mission, salaire, lieu),
-catégories et tags associés,
-informations sur le recruteur (entreprise, site web, etc.).
-- Pages des Jobs recommandés (Selon les compétences (skills) et ses prétentions salariales du candidat connecté)
----
-
-🧪 Technologies requises
-Frontend : HTML5, CSS (framework possible : Bootstrap), JavaScript (AJAX)
-Backend : PHP 8 orienté objet
-Base de données : MySQL avec PDO comme driver
-Architecture: MVC + Repository Pattern.
