@@ -6,6 +6,8 @@ class Database
     private function  __clone(){}
     public static function getConnection()
     {
+        $dotenv = Dotenv\Dotenv::createImmutable("../..");
+        $dotenv->load();
         if (self::$conn === null) {
             $dbhost = $_ENV["host"];
             $dbname = $_ENV["userName"];

@@ -1,7 +1,7 @@
 create CareerLink;
 use CareerLink;
 create table users (
-    id int PRIMARY KEY,
+    id int PRIMARY KEY AUTO_INCREMENT,
     first_name varchar (50),
     last_name varchar (50),
     password varchar (50)

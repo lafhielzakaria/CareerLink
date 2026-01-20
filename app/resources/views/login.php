@@ -8,7 +8,7 @@
 <body>
     <form action="signup" method="post">
       <input type="text" placeholder = "Enter your firstname">
-      <a href="signup">you dont have an account ?</a>
+      <a href="signup.php">you dont have an account ?</a>
     </form>
 </body>
 </html>
