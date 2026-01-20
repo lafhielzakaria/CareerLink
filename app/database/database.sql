@@ -1,3 +1,4 @@
+create CareerLink;
 use CareerLink;
 create table users (
     id int PRIMARY KEY,
@@ -34,7 +35,7 @@ create table job_offre(
     id int PRIMARY KEY,
     user_id int,
     title varchar (50),
-    description varchar (100000),
+    description varchar (250),
     FOREIGN key (user_id) REFERENCES users (id)
 );
 create table job_offre_recommended (
