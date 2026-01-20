@@ -1,5 +1,6 @@
 <?php
-class Connection
+namespace App\Config;
+class Database
 {
     private static $conn = null;
     private function __construct(){}
