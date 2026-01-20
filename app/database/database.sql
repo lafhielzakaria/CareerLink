@@ -1,7 +1,4 @@
-<?php
-/*megrations diro fuh ay script fuh alter table ola creat table , add column ,modify column */
- /*l7wayj limakhshomx ykono : insert oul update  */
-$sql = "  
+use CareerLink;
 create table users (
     id int PRIMARY KEY,
     first_name varchar (50),
@@ -10,7 +7,7 @@ create table users (
 );
 create table role(
     id int PRIMARY KEY,
-    user_id int PRIMARY key,
+    user_id int,
     user_role varchar (50),
     FOREIGN key (user_id) REFERENCES users (id)
 );
@@ -53,4 +50,4 @@ create table job_offre_recommended (
     job_offre_id int,
     FOREIGN key (user_id) REFERENCES users (id),
     FOREIGN key (job_offre_id) REFERENCES  job_offre(id)
-)";
+);
