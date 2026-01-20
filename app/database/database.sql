@@ -4,18 +4,31 @@ create database CareerLink;
 
 use CareerLink;
 
-create table users (
-    id int PRIMARY KEY AUTO_INCREMENT,
-    first_name varchar(50),
-    last_name varchar(50),
-    password varchar(50)
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    password VARCHAR(255),
+    role_id INT,
+    FOREIGN KEY (role_id) REFERENCES roles (id)
 );
 
-create table role (
-    id int PRIMARY KEY AUTO_INCREMENT,
-    user_id int,
-    user_role varchar(50),
-    FOREIGN key (user_id) REFERENCES users (id)
+CREATE TABLE candidates (
+    user_id INT PRIMARY KEY,
+    skills TEXT,
+    salary_expectation DECIMAL(10, 2),
+    FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+CREATE TABLE recruiters (
+    user_id INT PRIMARY KEY,
+    company_name VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+CREATE TABLE roles (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL UNIQUE
 );
 
 create table category (
