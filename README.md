@@ -1,4 +1,5 @@
 # CareerLink
+
 🧠 Contexte du projet
 CareerLink est une plateforme destinée à faciliter la mise en relation entre candidats, recruteurs et administrateurs, dans différents secteurs d’activité.
 
@@ -7,7 +8,6 @@ L’application doit offrir :
 une gestion efficace du contenu pour les administrateurs,
 une interface claire et fonctionnelle pour les recruteurs,
 une expérience fluide et intuitive pour les candidats à la recherche d’opportunités professionnelles.
----
 
 ⚙️ Fonctionnalités clés
 🛠️ Back Office (Administrateurs & Recruteurs)
