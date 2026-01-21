@@ -6,13 +6,13 @@ class Router {
   $router[$path] = $callback;
   }
   public function redirect ($uri){
-    if (array_key_exists($url)){
+    if (array_key_exists($url,$this->router)){
    $action = $this->router[$url];
    $controller = $action[0];
    $methode = $action[1];
-   $middleware = $action[2];
-   require_once "../../Controllers".$controller.".php";
-   $className = "..\\Controller\\".$controller;
+   
+   
+   $className = "Controller\\".$controller;
    $obj = new $className ();
    $obj->$methode();
     }
