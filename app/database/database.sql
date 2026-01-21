@@ -1,16 +1,4 @@
-<<<<<<< HEAD
 create database CareerLink;
-use CareerLink;
-create table users (
-    id int PRIMARY KEY AUTO_INCREMENT,
-    first_name varchar (50),
-    last_name varchar (50),
-    password varchar (50)
-=======
--- Active: 1764683361796@@127.0.0.1@3306
--- Active: 1764683361796@@127.0.0.1@3306
-create database CareerLink;
-
 use CareerLink;
 
 CREATE TABLE users (
@@ -20,7 +8,6 @@ CREATE TABLE users (
     password VARCHAR(255),
     role_id INT,
     FOREIGN KEY (role_id) REFERENCES roles (id)
->>>>>>> 29acbf7f6700587a571c088beb806ec559cf434f
 );
 
 CREATE TABLE candidates (
@@ -38,7 +25,7 @@ CREATE TABLE recruiters (
 
 CREATE TABLE roles (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL UNIQUE
+    name VARCHAR(50) NOT NULL 
 );
 
 create table category (
@@ -47,26 +34,12 @@ create table category (
     title varchar(50),
     FOREIGN key (user_id) REFERENCES users (id)
 );
-<<<<<<< HEAD
-create table category(
-    id int PRIMARY KEY,
-    user_id int,
-    title varchar (50),
-    FOREIGN key (user_id) REFERENCES users(id)
-    
-);
-create table tags(
-    id int PRIMARY KEY,
-=======
-
 create table tags (
     id int PRIMARY KEY AUTO_INCREMENT,
->>>>>>> 29acbf7f6700587a571c088beb806ec559cf434f
     category_id int,
     title varchar(50),
     FOREIGN key (category_id) REFERENCES category (id)
 );
-
 create table user_skills (
     id int PRIMARY KEY AUTO_INCREMENT,
     user_id int,
@@ -76,15 +49,11 @@ create table user_skills (
 
 create table job_offre (
     id int PRIMARY KEY AUTO_INCREMENT,
+    status enum ("actif","archive")  DEFAULT "actif"; 
     user_id int,
-<<<<<<< HEAD
-    title varchar (50),
-    description varchar (255),
-=======
     title varchar(50),
     description varchar(255),
->>>>>>> 29acbf7f6700587a571c088beb806ec559cf434f
-    FOREIGN key (user_id) REFERENCES users (id)
+    FOREIGN key (user_id) REFERENCES recruiters (user_id)
 );
 
 create table job_offre_recommended (
