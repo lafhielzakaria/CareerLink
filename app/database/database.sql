@@ -28,7 +28,7 @@ CREATE TABLE recruiters (
 
 CREATE TABLE roles (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL UNIQUE
+    name VARCHAR(50) NOT NULL
 );
 
 create table category (
