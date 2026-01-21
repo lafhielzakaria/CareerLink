@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - CareerLink</title>
 
-    <link rel="stylesheet" href="../../public/css/register.css">
+    <link rel="stylesheet" href="./app/public/css/register.css">
 </head>
 
 <body>
@@ -17,21 +17,12 @@
                 <p>Create Your Account</p>
             </div>
 
-            <?php if (isset($error)): ?>
-                <div class="error-message">
-                    <?php echo htmlspecialchars($error); ?>
-                </div>
-            <?php endif; ?>
 
-            <?php if (isset($success)): ?>
-                <div class="success-message">
-                    <?php echo htmlspecialchars($success); ?>
-                </div>
-            <?php endif; ?>
 
-            <form action="" method="POST">
+            <form action="register" method="POST">
                 <input type="text" name="first_name" placeholder="First Name" required>
                 <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="text" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
 
                 <select id="role" name="role_id" required>
@@ -58,7 +49,7 @@
         </div>
     </div>
 
-    <script src="../../public/js/register.js"></script>
+    <script src="./app/public/js/register.js"></script>
 </body>
 
 </html>
