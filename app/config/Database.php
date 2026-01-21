@@ -1,6 +1,10 @@
 <?php
+<<<<<<< HEAD:app/config/database.php
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+=======
+namespace App\Config;
+>>>>>>> a5ad3d963409a581123a4f4119eed292dac01ce5:app/config/Database.php
 class Database
 {
     private static $conn = null;
