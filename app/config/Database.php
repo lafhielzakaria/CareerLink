@@ -1,4 +1,5 @@
 <?php
+namespace App\Config;
 class Database
 {
     private static $conn = null;

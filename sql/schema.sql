@@ -1,5 +1,4 @@
 create database CareerLink;
-
 use CareerLink;
 
 CREATE TABLE roles (
