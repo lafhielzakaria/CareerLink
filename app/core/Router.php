@@ -14,6 +14,7 @@ class Router
   {
     $this->routes[$path] = $callBack;
   }
+
   public function dispatch($url)
   {
     if (array_key_exists($url, $this->routes)) {

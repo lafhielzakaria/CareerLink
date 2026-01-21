@@ -1,8 +1,11 @@
--- Active: 1764683361796@@127.0.0.1@3306
--- Active: 1764683361796@@127.0.0.1@3306
 create database CareerLink;
 
 use CareerLink;
+
+CREATE TABLE roles (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL
+);
 
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -57,7 +60,8 @@ create table job_offre (
     user_id int,
     title varchar(50),
     description varchar(255),
-    FOREIGN key (user_id) REFERENCES users (id)
+    FOREIGN key (user_id) REFERENCES recruiters (user_id),
+    deleted_at TIMESTAMP NULL DEFAULT NULL
 );
 
 create table job_offre_recommended (
