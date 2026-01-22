@@ -68,7 +68,6 @@
             padding: 30px;
             animation: slideIn 0.3s ease-out;
         }
-
         .card h2 {
             color: #333;
             font-size: 20px;
@@ -259,6 +258,11 @@
     </style>
 </head>
 <body>
+    <?php
+     use App\Controllers\JoboffreController;
+     $JoboffreController = new JoboffreController ();
+    $skills =  $JoboffreController->getAllSkills ();
+    ?>
     <div class="dashboard-container">
         <!-- Navigation -->
         <nav class="navbar">
@@ -289,10 +293,14 @@
                         <label for="category">Category</label>
                         <select id="category" name="category">
                             <option value="">Select Category</option>
-                    
                         </select>
-                        <select id="skills" name="skills">
+                        <select multiple="multiple" id="skills" name="skills">
                             <option value="">Select skill</option>
+                            <?php 
+                              foreach ($skills as $skill){
+                            
+                              }
+                            ?>
                         </select>
                     </div>
                     

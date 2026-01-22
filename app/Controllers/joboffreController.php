@@ -1,9 +1,40 @@
 <?php
-/*
-syft lpost m3ah tal user_id
-checke wax xi 7aja kyna ful lpost
-hdar m3a service bax tvalider 
-matvalidax return mn function
-latvalidat hdar m3a repo bax yinsirer fu user_id , title , description , skill;
- 
-*/
+session_start();
+namespace App\Controllers;
+use app\Services\JobOffreService;
+use app\Models\Entity\JobOffre;
+use app\Models\Repositories\JobOffreRepository;
+class JobOffreController {
+    private $jobOffreService;
+    private $repository;
+    
+    public function __construct() {
+        $this->jobOffreService = new JobOffreService();
+        $this->repository = new JobOffreRepository();
+    }
+    public function getAllSkills(){
+       $skills =  $this->repository->getAllSkills();
+       return $skills;
+    }
+    public function create() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $title = $_POST['jobTitle'];
+            $description = $_POST['offreDescription'];
+            $userId = $_SESSION['user_id'] ?? null;
+            
+            if (!$userId) {
+                exit();
+            }
+            $isValid = $this->jobOffreService->validateJobOffre($title, $description);
+            if (!$isValid) {
+                exit();
+            }
+            $jobOffre = new JobOffre(null, $userId, $title, $description);
+            $this->repository->save($jobOffre);
+        }
+    }
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $controller = new JobOffreController();
+    $controller->create();
+}

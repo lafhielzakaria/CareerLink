@@ -1,1 +1,0 @@
-<!-- validate inputs -->

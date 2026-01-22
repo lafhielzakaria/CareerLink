@@ -49,7 +49,7 @@ create table user_skills (
 
 create table job_offre (
     id int PRIMARY KEY AUTO_INCREMENT,
-    status enum ("actif","archive")  DEFAULT "actif"; 
+    status enum ("actif","archive") DEFAULT "actif",
     user_id int,
     title varchar(50),
     description varchar(255),
