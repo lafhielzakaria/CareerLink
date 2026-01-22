@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models\Entity;
 
 use app\Models\Entity\User;
