@@ -7,6 +7,9 @@ use Dotenv\Dotenv;
 
 use PDO;
 
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+
 class Database
 {
     private static $conn = null;
@@ -20,6 +23,8 @@ class Database
             $dotenv->load();
             $dbhost = $_ENV["host"];
             $dbUser = $_ENV["userName"];
+            $dbname = $_ENV["userName"];
+            $host = $_ENV["host"];
             $dbpass = $_ENV["password"];
             $dbName = $_ENV["dbName"];
             self::$conn = new PDO(
@@ -29,6 +34,11 @@ class Database
             );
             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
+                $dbpass
+            );
+            self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            }
+
         return self::$conn;
     }
 }

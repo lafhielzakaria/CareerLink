@@ -1,22 +1,19 @@
 <?php
+namespace app\Controllers;
 
-
-namespace App\Controllers;
-
-use App\Services\AuthService;
-
-/* 4at kon 3andna methode dyal register ol login*/
+use app\Services\AuthService;
 
 class AuthController
 {
-    private $AuthService;
+    private $authService;
+    
     public function __construct()
     {
-        $this->AuthService = new AuthService();
+        $this->authService = new AuthService();
     }
+    
     public function getRegister()
     {
-
         require_once './app/resources/views/register.php';
     }
     public function getlogin()
@@ -39,7 +36,6 @@ class AuthController
 
     public function register()
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $role = $_POST['role_id'];
             $firstName = $_POST['first_name'];

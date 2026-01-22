@@ -20,6 +20,9 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
     public static $prefixLengthsPsr4 = array(
         'T' =>
         array(
+        'T' => 
+        array (
+
             'Twig\\' => 5,
         ),
         'S' =>
@@ -30,6 +33,8 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
         ),
         'P' =>
         array(
+        'P' => 
+        array (
             'PhpOption\\' => 10,
         ),
         'G' =>
@@ -42,6 +47,7 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
         ),
         'A' =>
         array(
+        array (
             'App\\' => 4,
         ),
     );
@@ -49,6 +55,8 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
     public static $prefixDirsPsr4 = array(
         'Twig\\' =>
         array(
+        'Twig\\' => 
+        array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
         'Symfony\\Polyfill\\Php80\\' =>
@@ -57,6 +65,8 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
         ),
         'Symfony\\Polyfill\\Mbstring\\' =>
         array(
+        array (
+
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
         'Symfony\\Polyfill\\Ctype\\' =>
@@ -65,6 +75,8 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
         ),
         'PhpOption\\' =>
         array(
+        'PhpOption\\' => 
+        array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
         'GrahamCampbell\\ResultType\\' =>
@@ -77,6 +89,8 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
         ),
         'App\\' =>
         array(
+        array (
+
             0 => __DIR__ . '/../..' . '/app',
         ),
     );

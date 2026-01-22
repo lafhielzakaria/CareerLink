@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 use App\core\Router;
 
@@ -25,3 +26,17 @@ $router->add('dsRecruteur', ['AuthController', 'dsRecruteur']);
 $router->add('dsCandidate', ['AuthController', 'dsCandidate']);
 
 $router->dispatch($url);
+=======
+require_once "../vendor/autoload.php";
+use app\core\Router;
+$uri = $_SERVER['REQUEST_URI'] ?? ''; 
+$script_name = dirname($_SERVER['SCRIPT_NAME']);
+$url = str_replace($script_name, '', $uri);
+$url = parse_url($url, PHP_URL_PATH);
+$url = trim($url, '/');
+$router = new Router ();
+$router->add ('',['PageController','login']);
+$router->add ('login',['PageController','login']);
+$router->add ('signup',['PageController','signup']);
+$router->dispatch($url);
+>>>>>>> login_feature

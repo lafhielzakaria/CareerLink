@@ -15,4 +15,13 @@ class JobOfferRepository{
             ":id" => $id
         ]);
     }
+        public function save($jobOffre) {
+ 
+       }
+       public function getAllSkills(){
+        $query = "select * from tags";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+       }
+
 }

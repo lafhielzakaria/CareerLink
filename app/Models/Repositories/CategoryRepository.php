@@ -23,6 +23,9 @@ class CategoryRepository
                 ":title" => $title
             ]);
         }
+        catch (err){
+            echo err;
+        }
 
 
     }
