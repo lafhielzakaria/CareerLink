@@ -8,32 +8,38 @@ use App\Models\Entity\Role;
 class User
 {
 
-    private $nom;
+    private $firstName;
+    private $lastName;
     private $email;
     private $password;
     private $role;
-    public function __construct($nom, $email, $password, Role $role)
+    public function __construct($firstName, $lastName, $email, $password, $role)
     {
-        $this->nom = $nom;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
         $this->email = $email;
         $this->password = $password;
         $this->role = $role;
     }
-    public function getNom()
+    public function getfirstName()
     {
-        return $this->nom;
+        return $this->firstName;
+    }
+    public function getlastName()
+    {
+        return $this->lastName;
     }
     public function getEmail()
     {
         return $this->email;
     }
+    public function getpassword()
+    {
+        return $this->password;
+    }
     public function getRole()
     {
         return $this->role;
-    }
-    public function setRole(Role $role)
-    {
-        $this->role = $role;
     }
 }
 =======
