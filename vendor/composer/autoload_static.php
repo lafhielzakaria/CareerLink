@@ -6,7 +6,7 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
 {
-    public static $files = array (
+    public static $files = array(
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -17,71 +17,71 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
         'f844ccf1d25df8663951193c3fc307c8' => __DIR__ . '/..' . '/twig/twig/src/Resources/string_loader.php',
     );
 
-    public static $prefixLengthsPsr4 = array (
-        'T' => 
-        array (
+    public static $prefixLengthsPsr4 = array(
+        'T' =>
+        array(
             'Twig\\' => 5,
         ),
-        'S' => 
-        array (
+        'S' =>
+        array(
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
-        'P' => 
-        array (
+        'P' =>
+        array(
             'PhpOption\\' => 10,
         ),
-        'G' => 
-        array (
+        'G' =>
+        array(
             'GrahamCampbell\\ResultType\\' => 26,
         ),
-        'D' => 
-        array (
+        'D' =>
+        array(
             'Dotenv\\' => 7,
         ),
-        'A' => 
-        array (
+        'A' =>
+        array(
             'App\\' => 4,
         ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'Twig\\' => 
-        array (
+    public static $prefixDirsPsr4 = array(
+        'Twig\\' =>
+        array(
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
-        'Symfony\\Polyfill\\Php80\\' => 
-        array (
+        'Symfony\\Polyfill\\Php80\\' =>
+        array(
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
-        array (
+        'Symfony\\Polyfill\\Mbstring\\' =>
+        array(
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Ctype\\' => 
-        array (
+        'Symfony\\Polyfill\\Ctype\\' =>
+        array(
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'PhpOption\\' => 
-        array (
+        'PhpOption\\' =>
+        array(
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
-        'GrahamCampbell\\ResultType\\' => 
-        array (
+        'GrahamCampbell\\ResultType\\' =>
+        array(
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
-        'Dotenv\\' => 
-        array (
+        'Dotenv\\' =>
+        array(
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'App\\' => 
-        array (
+        'App\\' =>
+        array(
             0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
-    public static $classMap = array (
+    public static $classMap = array(
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
@@ -96,7 +96,6 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
             $loader->prefixLengthsPsr4 = ComposerStaticInitf8985934d54059e3446bc3ad244e55b0::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf8985934d54059e3446bc3ad244e55b0::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitf8985934d54059e3446bc3ad244e55b0::$classMap;
-
         }, null, ClassLoader::class);
     }
 }
