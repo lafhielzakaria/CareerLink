@@ -3,14 +3,14 @@ namespace app\Models\Entity;
 
 class JobOffre {
     private $id;
-    private $userId;
+    private $recruiterId;
     private $title;
     private $description;
     private $status;
     
-    public function __construct($id, $userId, $title, $description, $status = 'actif') {
+    public function __construct($id, $recruiterId, $title, $description, $status = 'actif') {
         $this->id = $id;
-        $this->userId = $userId;
+        $this->recruiterId = $recruiterId;
         $this->title = $title;
         $this->description = $description;
         $this->status = $status;
