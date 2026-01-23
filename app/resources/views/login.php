@@ -194,19 +194,7 @@
                 <p>Your Career Journey Starts Here</p>
             </div>
 
-            <?php if (isset($error)): ?>
-                <div class="error-message">
-                    <?php echo htmlspecialchars($error); ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if (isset($success)): ?>
-                <div class="success-message">
-                    <?php echo htmlspecialchars($success); ?>
-                </div>
-            <?php endif; ?>
-
-            <form method="POST" action="/auth/login">
+            <form method="POST" action="../../Controllers/AuthController.php">
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input
@@ -226,38 +214,15 @@
                         placeholder="Enter your password"
                         required>
                 </div>
-
-                <div class="remember-forgot">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember">Remember me</label>
-                    </div>
-                    <a href="#">Forgot password?</a>
-                </div>
-
                 <button type="submit" class="btn-login">Login</button>
             </form>
 
             <div class="signup-link">
-                Don't have an account? <a href="/auth/register">Sign up here</a>
+                Don't have an account? <a href="signup.php">Sign up here</a>
             </div>
         </div>
     </div>
 </body>
 
-=======
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-</head>
-
-<body>
-    <form action="signup" method="post">
-        <input type="text" placeholder="Enter your firstname">
-        <a href="signup">you dont have an account ?</a>
-    </form>
-</body>
 
 </html>

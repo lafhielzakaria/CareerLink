@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <form action="AddCategory" method="post">
-        <input name="title" type="text">
-        <input type="submit" name="AddCategory" value="AddCategory">
-    </form>
+    <h1>dashbord Admin</h1>
 </body>
+
 </html>

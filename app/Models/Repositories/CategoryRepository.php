@@ -22,6 +22,10 @@ class CategoryRepository
                 ":title" => $category->getTitle()
             ]);
         }
+        catch (err){
+            echo "err";
+        }
+        return $category;
 
     }
 }
