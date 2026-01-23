@@ -2,7 +2,7 @@
 
 namespace app\Models\Entity;
 
-use App\Models\Entity\Role;
+
 
 class User
 {
@@ -12,8 +12,9 @@ class User
     private $email;
     private $password;
     private $role;
-    public function __construct($firstName, $lastName, $email, $password, $role)
+    public function __construct(private ?int $id = null, $firstName, $lastName, $email, $password, $role)
     {
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
@@ -39,5 +40,9 @@ class User
     public function getRole()
     {
         return $this->role;
+    }
+    public function getId()
+    {
+        return $this->id;
     }
 }
