@@ -1,6 +1,6 @@
 <?php
-session_start();
 namespace App\Controllers;
+session_start();
 use app\Services\JobOffreService;
 use app\Models\Entity\JobOffre;
 use app\Models\Repositories\JobOffreRepository;

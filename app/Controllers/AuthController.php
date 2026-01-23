@@ -1,7 +1,7 @@
 <?php
-namespace app\Controllers;
+namespace App\Controllers;
 
-use app\Services\AuthService;
+use App\Services\AuthService;
 
 class AuthController
 {
@@ -50,7 +50,7 @@ class AuthController
 
             if ($succes) {
 
-                header('Location:formLogin');
+                header('Location: formLogin');
                 exit;
             }
         }
