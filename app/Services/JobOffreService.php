@@ -1,6 +1,5 @@
 <?php
-namespace app\Services;
-
+namespace App\Services;
 class JobOffreService {
     public function validateJobOffre($title, $description) {
         if (empty($title) || empty($description)) {

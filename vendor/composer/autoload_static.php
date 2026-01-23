@@ -18,11 +18,7 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
     );
 
     public static $prefixLengthsPsr4 = array (
-<<<<<<< HEAD
         'T' => 
-=======
-        'T' =>
->>>>>>> login_feature
         array (
             'Twig\\' => 5,
         ),
@@ -32,7 +28,6 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
-<<<<<<< HEAD
         'P' => 
         array (
             'PhpOption\\' => 10,
@@ -46,28 +41,12 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
             'Dotenv\\' => 7,
         ),
         'A' => 
-=======
-        'P' =>
-        array (
-            'PhpOption\\' => 10,
-        ),
-        'G' =>
-        array (
-            'GrahamCampbell\\ResultType\\' => 26,
-        ),
-        'D' =>
-        array (
-            'Dotenv\\' => 7,
-        ),
-        'A' =>
->>>>>>> login_feature
         array (
             'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-<<<<<<< HEAD
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
@@ -77,17 +56,6 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
-=======
-        'Twig\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/twig/twig/src',
-        ),
-        'Symfony\\Polyfill\\Php80\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
-        ),
-        'Symfony\\Polyfill\\Mbstring\\' =>
->>>>>>> login_feature
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
@@ -95,7 +63,6 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-<<<<<<< HEAD
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
@@ -109,21 +76,6 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
         'App\\' => 
-=======
-        'PhpOption\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
-        ),
-        'GrahamCampbell\\ResultType\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
-        ),
-        'Dotenv\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
-        'App\\' =>
->>>>>>> login_feature
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),

@@ -260,8 +260,7 @@
 <body>
     <?php
      use App\Controllers\JoboffreController;
-     $JoboffreController = new JoboffreController ();
-    $skills =  $JoboffreController->getAllSkills ();
+
     ?>
     <div class="dashboard-container">
         <!-- Navigation -->
@@ -278,7 +277,7 @@
         <div class="dashboard-grid">
             <div class="card">
                 <h2>Create New Job Offer</h2>
-                <form action="joboffreController" method="post">
+                <form action="../../Controllers/JobOffreController.php" method="post">
                     <div class="form-group">
                         <label for="jobTitle">Job Title</label>
                         <input type="text" id="jobTitle" name="jobTitle" placeholder="Enter job title">
@@ -295,18 +294,16 @@
                             <option value="">Select Category</option>
                         </select>
                         <select multiple="multiple" id="skills" name="skills">
+                          
                             <option value="">Select skill</option>
-                            <?php 
-                              foreach ($skills as $skill){
-                            
-                              }
-                            ?>
+                            <option value="1">php</option>
+                            <option value="2">css</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
                         <label for="salary">Salary Range</label>
-                        <input type="text" id="salary" name="salary" placeholder="Enter the salary range">
+                        <input type="number" id="salary" name="salary" placeholder="Enter the salary range">
                     </div>
                     
                     <div class="form-group">
