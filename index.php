@@ -23,5 +23,6 @@ $router->add('login', ['AuthController', 'login']);
 $router->add('dsAdmin', ['AuthController', 'dsAdmin']);
 $router->add('dsRecruteur', ['AuthController', 'dsRecruteur']);
 $router->add('dsCandidate', ['AuthController', 'dsCandidate']);
+$router->add('logout', ['AuthController', 'logout']);
 
 $router->dispatch($url);

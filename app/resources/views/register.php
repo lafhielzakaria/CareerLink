@@ -44,7 +44,7 @@
             </form>
 
             <div class="login-link">
-                Already have an account? <a href="/auth/login">Login here</a>
+                Already have an account? <a href="formLogin">Login here</a>
             </div>
         </div>
     </div>

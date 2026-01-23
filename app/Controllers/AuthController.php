@@ -36,6 +36,16 @@ class AuthController
     {
         require_once './app/resources/views/dashbordRecruteur.php';
     }
+    public function logout()
+    {
+        session_start();
+
+        session_unset();
+        session_destroy();
+
+        header('Location: formLogin');
+        exit;
+    }
 
     public function register()
     {
@@ -66,6 +76,7 @@ class AuthController
             $password = $_POST['password'];
             $role = $this->AuthService->login($email, $password);
             var_dump($role);
+
             if ($role === 'admin') {
                 return header('Location:dsAdmin');
             } else if ($role === 'Candidate') {

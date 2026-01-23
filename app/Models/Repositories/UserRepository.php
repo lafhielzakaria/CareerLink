@@ -60,7 +60,10 @@ class UserRepository
     }
     public function mapToUser($user)
     {
+        //$id = $user['id'];
+
         $objectUser = new User(
+            $user['id'],
             $user['first_name'],
             $user['last_name'],
             $user['email'],
