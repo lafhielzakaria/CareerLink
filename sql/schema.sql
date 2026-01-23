@@ -2,23 +2,28 @@ create database CareerLink;
 
 use CareerLink;
 
+drop TABLE if EXISTS roles;
+
 CREATE TABLE roles (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL
+    name VARCHAR(50) NOT NULL UNIQUE
 );
+
+drop table if EXISTS users;
 
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
+    email VARCHAR(50) UNIQUE,
     password VARCHAR(255),
-    role_id INT,
+    role_id VARCHAR(50),
     FOREIGN KEY (role_id) REFERENCES roles (id)
 );
 
 CREATE TABLE candidates (
     user_id INT PRIMARY KEY,
-    skills TEXT,
+    skills VARCHAR(50),
     salary_expectation DECIMAL(10, 2),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
