@@ -1,11 +1,9 @@
 <?php
-namespace app\Controllers;
-require_once '../../vendor/autoload.php';
+namespace App\Controllers;
 session_start();
 use App\Models\Entity\JobOffre;
 use App\Models\Repositories\JobOfferRepository;
 use App\Services\JobOffreService;
-use App\Models\Entity\Recruiter;
 class JobOffreController {
     private $jobOffreService;
     private $repository;
@@ -19,20 +17,22 @@ class JobOffreController {
     }
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $Recruiter = new Recruiter ();
+         if (session_status() === PHP_SESSION_NONE) {
+           session_start();   
+           }    
+            $id = Null;
             $title = $_POST['jobTitle'];
             $description = $_POST['offreDescription'];
             $skills = $_POST['skills'] ?? [];
-            $RecruiterId =  $_SESSION["RecruiterId"];
+            $RecruiterId = $_SESSION['user_id'];
+            $jobOffre = new JobOffre($id,$RecruiterId,$title, $description, 'actif');
             $isValid = $this->jobOffreService->validateJobOffre($title, $description);
             if (!$isValid) {
                 exit();
             }
-            $jobOffre = new JobOffre($RecruiterId, $userId, $title, $description);
-            $jobOffreId = $this->repository->save($jobOffre);
-            
-            if ($jobOffreId && !empty($skills)) {
-                $this->repository->saveJobSkills($jobOffreId, $skills);
+            $jobOffreId = $this->repository->save($jobOffre);            
+            if (!empty($skills)) {
+                $this->repository->saveJobSkills($jobOffreId, $skills, $RecruiterId);
             }
         }
     }
@@ -41,4 +41,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var_dump ($_POST["skills"]);
     $controller = new JobOffreController();
     $controller->create();
+     header('Location:dsRecruteur');
 }

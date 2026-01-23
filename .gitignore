@@ -1,5 +1,4 @@
 .env
-<<<<<<< HEAD
 vendor/
 autoload_static.php
 installed.php
@@ -8,6 +7,3 @@ autoload_namespaces.php
 ClassLoader.php
 autoload_psr4.php
 autoload_real.php
-=======
-/vendor
->>>>>>> 94f0d19709aa2fd39a0e85dcb2bf116ed32d9d86

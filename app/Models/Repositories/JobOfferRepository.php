@@ -11,21 +11,23 @@ class JobOfferRepository{
             $sql = "INSERT INTO job_offre (user_id, title, description, status) VALUES (?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
-                $jobOffre->getId(),
+                $jobOffre->getRecruiterId(),
                 $jobOffre->getTitle(),
                 $jobOffre->getDescription(),
                 $jobOffre->getStatus()
             ]);
-        } catch (Exception $e) {
-            return false;
-        }
+            return $this->conn->lastInsertId();
     }
-    public function saveJobSkills($jobOffreId, $skills) {
+    catch (PDOExeption $e){
+    echo "failed to create offre".$e->getMessage();
+            }
+    }
+    public function saveJobSkills($jobOffreId, $skills, $userId) {
         try {
             foreach ($skills as $skillId) {
-                $sql = "INSERT INTO job_offre_recommended (job_offre_id, tag_id) VALUES (?, ?)";
+                $sql = "INSERT INTO user_skills (user_id, skill_id) VALUES (?, ?)";
                 $stmt = $this->conn->prepare($sql);
-                $stmt->execute([$jobOffreId, $skillId]);
+                $stmt->execute([$userId, $skillId]);
             }
             return true;
         } catch (Exception $e) {

@@ -277,7 +277,7 @@
         <div class="dashboard-grid">
             <div class="card">
                 <h2>Create New Job Offer</h2>
-                <form action="../../Controllers/JobOffreController.php" method="post">
+                <form action="JoboffreController" method="post">
                     <div class="form-group">
                         <label for="jobTitle">Job Title</label>
                         <input type="text" id="jobTitle" name="jobTitle" placeholder="Enter job title">
@@ -293,12 +293,16 @@
                         <select id="category" name="category">
                             <option value="">Select Category</option>
                         </select>
-                        <select multiple="multiple" id="skills" name="skills">
-                          
+                    <div class="form-group">
+                        <label for="skills">Skills</label>
+                        <select id="skills" name="skillSelect">
                             <option value="">Select skill</option>
-                            <option value="1">php</option>
-                            <option value="2">css</option>
+                            <option value="1">PHP</option>
+                            <option value="2">CSS</option>
+                            <option value="3">JavaScript</option>
                         </select>
+                        <div id="selectedSkills" style="margin-top: 10px;"></div>
+                        <input type="hidden" name="skills" id="skillsArray" value="">
                     </div>
                     
                     <div class="form-group">
@@ -317,4 +321,31 @@
     <div class="job-list"></div>
     </div>
 </body>
+<script>
+let selectedSkills = [];
+
+document.getElementById('skills').addEventListener('change', function() {
+    const skillId = this.value;
+    const skillText = this.options[this.selectedIndex].text;
+    
+    if (skillId && !selectedSkills.includes(skillId)) {
+        selectedSkills.push(skillId);
+        
+        const skillDiv = document.createElement('div');
+        skillDiv.innerHTML = `${skillText} <button type="button" onclick="removeSkill('${skillId}', this)">Remove</button>`;
+        skillDiv.style.cssText = 'padding: 5px; margin: 2px; background: #f0f0f0; display: inline-block;';
+        
+        document.getElementById('selectedSkills').appendChild(skillDiv);
+        document.getElementById('skillsArray').value = selectedSkills.join(',');
+    }
+    
+    this.value = '';
+});
+
+function removeSkill(skillId, button) {
+    selectedSkills = selectedSkills.filter(id => id !== skillId);
+    button.parentElement.remove();
+    document.getElementById('skillsArray').value = selectedSkills.join(',');
+}
+</script>
 </html>

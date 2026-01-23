@@ -8,8 +8,7 @@ class JobOffre {
     private $description;
     private $status;
     
-    public function __construct($id, $recruiterId, $title, $description, $status = 'actif') {
-        $this->id = $id;
+    public function __construct($id,$recruiterId, $title, $description, $status = 'actif') {
         $this->recruiterId = $recruiterId;
         $this->title = $title;
         $this->description = $description;
@@ -19,8 +18,8 @@ class JobOffre {
     public function getId() { return $this->id; }
     public function setId($id) { $this->id = $id; }
     
-    public function getUserId() { return $this->userId; }
-    public function setUserId($userId) { $this->userId = $userId; }
+    public function getRecruiterId() { return $this->id; }
+    public function setUserId($userId) { $this->id = $userId; }
     
     public function getTitle() { return $this->title; }
     public function setTitle($title) { $this->title = $title; }

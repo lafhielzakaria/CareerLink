@@ -32,7 +32,7 @@ class AuthService
             return false;
         }
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $user = new User($firstName, $lastName, $email, $hashedPassword, $role);
+        $user = new User(null,$firstName, $lastName, $email, $hashedPassword, $role);
         $user_id = $this->userRepo->create($user);
         //var_dump($user_id);
 
@@ -60,9 +60,12 @@ class AuthService
         }
 
 
-        if (!password_verify($password, $user->getpassword())) {
+        if (!password_verify($password, $user->getPassword())) {
             return false;
         }
+        session_start();
+        $_SESSION['user_id'] = $user->getId();
+        $_SESSION['role'] = $user->getRole();
         $role = $this->userRepo->getRole($user);
 
         return $role;

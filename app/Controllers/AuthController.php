@@ -1,15 +1,15 @@
 <?php
 namespace app\Controllers;
 
-use app\Services\AuthService;
+use App\Services\AuthService;
 
 class AuthController
 {
-    private $authService;
+    private $AuthService;
     
     public function __construct()
     {
-        $this->authService = new AuthService();
+        $this->AuthService = new AuthService();
     }
     
     public function getRegister()
@@ -47,27 +47,27 @@ class AuthController
             $company_name = $_POST['company_name'];
 
             $succes = $this->AuthService->register($firstName, $lastName, $email, $password, $role, $skills, $salary_expectation, $company_name);
-
             if ($succes) {
-
-                header('Location:formLogin');
+                header('Location: formLogin');
                 exit;
             }
         }
     }
     public function login()
     {
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
             $email = $_POST['email'];
             $password = $_POST['password'];
             $role = $this->AuthService->login($email, $password);
-            var_dump($role);
+            
             if ($role === 'admin') {
-                return header('Location:dsAdmin');
-            } else if ($role === 'Candidate') {
-                return header('Location:dsCandidate');
+                return header('Location: dsAdmin');
+            } else if ($role === 'Candidat') {
+                return header('Location: dsCandidate');
             } else if ($role === 'Recruiter') {
-                return header('Location:dsRecruteur');
+                return header('Location: dsRecruteur');
             }
         }
     }

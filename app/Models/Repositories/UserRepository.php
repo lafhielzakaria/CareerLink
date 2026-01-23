@@ -53,6 +53,9 @@ class UserRepository
             'email' => $user->getEmail()
         ]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        var_dump ($row);
+      
+        
         if ($row) {
             return  $row['name'];
         }
@@ -60,6 +63,7 @@ class UserRepository
     public function mapToUser($user)
     {
         $objectUser = new User(
+            $user['id'],
             $user['first_name'],
             $user['last_name'],
             $user['email'],
