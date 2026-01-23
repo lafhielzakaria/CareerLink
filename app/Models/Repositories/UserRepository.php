@@ -1,5 +1,4 @@
 <?php
-
 namespace app\Models\Repositories;
 
 use App\config\Database;

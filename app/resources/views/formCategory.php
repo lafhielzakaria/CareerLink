@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/AddCategory" method="post">
+    <form action="AddCategory" method="post">
         <input name="title" type="text">
-        <input type="text">
+        <input type="submit" name="AddCategory" value="AddCategory">
     </form>
 </body>
 </html>

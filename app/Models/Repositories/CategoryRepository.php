@@ -13,17 +13,19 @@ class CategoryRepository
         $this->conn = Database::getConnection();
     }
 
-    public function addCategory($title)
+    public function addCategory($category)
     {
         try{
-            $category = new Category($title);
             $query = 'INSERT INTO category(title) VALUES(:title)';
             $stmt = $this->conn->prepare($query);
             $stmt->execute([
-                ":title" => $title
+                ":title" => $category->getTitle()
             ]);
         }
-
+        catch (err){
+            echo "err";
+        }
+        return $category;
 
     }
 }

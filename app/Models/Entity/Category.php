@@ -4,13 +4,26 @@ class Category
 {
     private $id;
     private $title;
-    //array tags
-    //add tag 
+    private $tags;
+    public function addTag(){
+        
+    } 
     public function __construct($title)
     {
         $this->title = $title;
     }
-    
-    public function getId(){return $this->id;}
-    public function gettitle(){return $this->title;}
+
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function getTitle()
+    {
+        return $this->title;
+    }
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
 }

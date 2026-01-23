@@ -1,8 +1,9 @@
 <?php
-
+require_once __DIR__ . '/vendor/autoload.php';
+// var_dump("hello");
+// exit;
 use App\core\Router;
 
-require_once __DIR__ . '/vendor/autoload.php';
 
 
 

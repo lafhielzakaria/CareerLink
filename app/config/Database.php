@@ -10,13 +10,13 @@ use PDO;
 class Database
 {
     private static $conn = null;
-    private function __construct() {}
-    private function  __clone() {}
+    private function construct() {}
+    private function  clone() {}
     public static function getConnection()
     {
 
         if (self::$conn === null) {
-            $dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
+            $dotenv = Dotenv::createImmutable(DIR . '/../..');
             $dotenv->load();
             $dbhost = $_ENV["host"];
             $dbUser = $_ENV["userName"];
