@@ -2,7 +2,6 @@
 
 namespace App\core;
 use App\Controllers\AuthController;
-
 class Router
 {
     private $routes = [];
@@ -21,13 +20,9 @@ class Router
             $controller = $action[0];
             $method = $action[1];
             
-            $user=new AuthController();
-          /*   $className = "App\Controllers\\".$controller;
-            $obj = new $className();
-            var_dump("hello");
-
-            var_dump($obj);
-            $obj->$method(); */
+            $className = "App\\Controllers\\" . $controller;
+            $obj = new $className;
+            $obj->$method();
         } else {
             http_response_code(404);
             echo "Page not found";
