@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\Repositories;
+namespace app\Models\Repositories;
 
-use App\config\Database;
+require_once __DIR__ . '/../../config/Database.php';
 
 class CandidateRepository
 {
     private $conn;
     public function __construct()
     {
-        $this->conn = Database::getConnection();
+        $this->conn = \Database::getConnection();
     }
     public function create($user_id, $skills, $salary_expectation)
     {

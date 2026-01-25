@@ -1,8 +1,8 @@
 <?php
 namespace app\Models\Repositories;
 
-use App\config\Database;
-use App\Models\Entity\User;
+require_once __DIR__ . '/../../config/Database.php';
+use app\Models\Entity\User;
 use PDO;
 
 class UserRepository
@@ -10,7 +10,7 @@ class UserRepository
     private $conn;
     public function __construct()
     {
-        $this->conn = Database::getConnection();
+        $this->conn = \Database::getConnection();
     }
     public function emailExists($email)
     {
@@ -30,10 +30,10 @@ class UserRepository
         $stmt = $this->conn->prepare("insert into users (first_name,last_name,email,password,role_id) values
         (:firstName,:lastName,:email,:password,:role)");
         $stmt->execute([
-            'firstName' => $user->getfirstName(),
-            'lastName' => $user->getlastName(),
+            'firstName' => $user->getFirstName(),
+            'lastName' => $user->getLastName(),
             'email' => $user->getEmail(),
-            'password' => $user->getpassword(),
+            'password' => $user->getPassword(),
             'role' => $user->getRole()
         ]);
         $user = $this->conn->lastInsertId();
@@ -53,6 +53,9 @@ class UserRepository
             'email' => $user->getEmail()
         ]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        var_dump ($row);
+      
+        
         if ($row) {
             return  $row['name'];
         }
@@ -62,12 +65,12 @@ class UserRepository
         //$id = $user['id'];
 
         $objectUser = new User(
-            $user['id'],
             $user['first_name'],
             $user['last_name'],
             $user['email'],
             $user['password'],
-            $user['role_id']
+            $user['role_id'],
+            $user['id']
         );
         return $objectUser;
     }

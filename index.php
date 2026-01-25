@@ -2,7 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 // var_dump("hello");
 // exit;
-use App\core\Router;
+use app\core\Router;
 
 
 
@@ -17,13 +17,13 @@ $url = trim($url, '/');
 $router = new Router();
 $router->add('formRegister', ['AuthController', 'getRegister']);
 $router->add('register', ['AuthController', 'register']);
-//$router->add('', ['AuthController', 'login']);
+$router->add('', ['AuthController', 'getLogin']);
 $router->add('formLogin', ['AuthController', 'getLogin']);
 $router->add('login', ['AuthController', 'login']);
-
 $router->add('dsAdmin', ['AuthController', 'dsAdmin']);
 $router->add('dsRecruteur', ['AuthController', 'dsRecruteur']);
 $router->add('dsCandidate', ['AuthController', 'dsCandidate']);
 $router->add('logout', ['AuthController', 'logout']);
+$router->add('joboffreController', ['JoboffreController', 'create']);
 
 $router->dispatch($url);

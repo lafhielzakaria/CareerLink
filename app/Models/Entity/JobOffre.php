@@ -19,8 +19,9 @@ class JobOffre {
     public function getId() { return $this->id; }
     public function setId($id) { $this->id = $id; }
     
-    public function getUserId() { return $this->userId; }
-    public function setUserId($userId) { $this->userId = $userId; }
+    public function getRecruiterId() { return $this->recruiterId; }
+    public function getUserId() { return $this->recruiterId; }
+    public function setUserId($userId) { $this->recruiterId = $userId; }
     
     public function getTitle() { return $this->title; }
     public function setTitle($title) { $this->title = $title; }
