@@ -1,24 +1,31 @@
 <?php
-namespace app\Models\Entity;
-class Router {
-  private $router = [];
-  public function add ($path , $callback,$middleware){
-  $router[$path] = $callback;
-  }
-  public function redirect ($uri){
-    if (array_key_exists($url)){
-   $action = $this->router[$url];
-   $controller = $action[0];
-   $methode = $action[1];
-   $middleware = $action[2];
-   require_once "../../Controllers".$controller.".php";
-   $className = "..\\Controller\\".$controller;
-   $obj = new $className ();
-   $obj->$methode();
+
+namespace app\core;
+use app\Controllers\AuthController;
+class Router
+{
+    private $routes = [];
+
+    public function add($path, $callback)
+    {
+        $this->routes[$path] = $callback;
     }
-    else {
-      http_response_code (404);
-      echo "cannot define file";
+
+    public function dispatch($url)
+    {
+
+        if (array_key_exists($url, $this->routes)) {
+            $action = $this->routes[$url];
+            
+            $controller = $action[0];
+            $method = $action[1];
+            
+            $className = "app\\Controllers\\" . $controller;
+            $obj = new $className;
+            $obj->$method();
+        } else {
+            http_response_code(404);
+            echo "Page not found";
+        }
     }
-  }
 }

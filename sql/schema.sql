@@ -1,18 +1,29 @@
 create database CareerLink;
+
 use CareerLink;
+
+drop TABLE if EXISTS roles;
+
+CREATE TABLE roles (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL UNIQUE
+);
+
+drop table if EXISTS users;
 
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
+    email VARCHAR(50) UNIQUE,
     password VARCHAR(255),
-    role_id INT,
+    role_id VARCHAR(50),
     FOREIGN KEY (role_id) REFERENCES roles (id)
 );
 
 CREATE TABLE candidates (
     user_id INT PRIMARY KEY,
-    skills TEXT,
+    skills VARCHAR(50),
     salary_expectation DECIMAL(10, 2),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
@@ -25,7 +36,7 @@ CREATE TABLE recruiters (
 
 CREATE TABLE roles (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL 
+    name VARCHAR(50) NOT NULL
 );
 
 create table category (
@@ -34,12 +45,14 @@ create table category (
     title varchar(50),
     FOREIGN key (user_id) REFERENCES users (id)
 );
+
 create table tags (
     id int PRIMARY KEY AUTO_INCREMENT,
     category_id int,
     title varchar(50),
     FOREIGN key (category_id) REFERENCES category (id)
 );
+
 create table user_skills (
     id int PRIMARY KEY AUTO_INCREMENT,
     user_id int,
@@ -49,11 +62,11 @@ create table user_skills (
 
 create table job_offre (
     id int PRIMARY KEY AUTO_INCREMENT,
-    status enum ("actif","archive") DEFAULT "actif",
     user_id int,
     title varchar(50),
     description varchar(255),
-    FOREIGN key (user_id) REFERENCES recruiters (user_id)
+    FOREIGN key (user_id) REFERENCES recruiters (user_id),
+    deleted_at TIMESTAMP NULL DEFAULT NULL
 );
 
 create table job_offre_recommended (
@@ -71,5 +84,3 @@ create table condidate_apply (
     FOREIGN key (user_id) REFERENCES users (id),
     FOREIGN key (job_offre_id) REFERENCES job_offre (id)
 );
-alter table users
- ADD column email varchar (50) UNIQUE; 
