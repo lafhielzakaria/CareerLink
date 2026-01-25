@@ -1,9 +1,2 @@
 .env
 vendor/
-autoload_static.php
-installed.php
-autoload_classmap.php
-autoload_namespaces.php
-ClassLoader.php
-autoload_psr4.php
-autoload_real.php

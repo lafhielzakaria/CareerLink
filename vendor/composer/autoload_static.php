@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
+class ComposerStaticInit6c689e14bbdd3b0c67c4e2d4dce22528
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -18,66 +18,66 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'a' =>
+        array (
+            'app\\' => 4,
+        ),
+        'T' =>
         array (
             'Twig\\' => 5,
         ),
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
-        'P' => 
+        'P' =>
         array (
             'PhpOption\\' => 10,
         ),
-        'G' => 
+        'G' =>
         array (
             'GrahamCampbell\\ResultType\\' => 26,
         ),
-        'D' => 
+        'D' =>
         array (
             'Dotenv\\' => 7,
-        ),
-        'A' => 
-        array (
-            'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Twig\\' => 
+        'app\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
+        'Twig\\' =>
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
-        'Symfony\\Polyfill\\Php80\\' => 
+        'Symfony\\Polyfill\\Php80\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
+        'Symfony\\Polyfill\\Mbstring\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Ctype\\' => 
+        'Symfony\\Polyfill\\Ctype\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'PhpOption\\' => 
+        'PhpOption\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
-        'GrahamCampbell\\ResultType\\' => 
+        'GrahamCampbell\\ResultType\\' =>
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
-        'Dotenv\\' => 
+        'Dotenv\\' =>
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
@@ -93,9 +93,9 @@ class ComposerStaticInitf8985934d54059e3446bc3ad244e55b0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf8985934d54059e3446bc3ad244e55b0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf8985934d54059e3446bc3ad244e55b0::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitf8985934d54059e3446bc3ad244e55b0::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6c689e14bbdd3b0c67c4e2d4dce22528::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6c689e14bbdd3b0c67c4e2d4dce22528::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6c689e14bbdd3b0c67c4e2d4dce22528::$classMap;
 
         }, null, ClassLoader::class);
     }

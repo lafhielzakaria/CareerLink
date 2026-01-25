@@ -1,33 +1,38 @@
 <?php
 namespace app\Models\Repositories;
-use App\Config\Database;
+require_once __DIR__ . '/../../config/Database.php';
 class JobOfferRepository{
     private $conn;
     public function __construct(){
-        $this->conn = Database::getConnection();
+        $this->conn = \Database::getConnection();
+    }
+    public function getAllJoboffers ($RecruiterId){
+        $sql = "select * from job_offre where user_id = $RecruiterId";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(); 
+        return $stmt->fetchAll();
     }
     public function save($jobOffre){
         try {
             $sql = "INSERT INTO job_offre (user_id, title, description, status) VALUES (?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
-                $jobOffre->getRecruiterId(),
+                $jobOffre->getUserId(),
                 $jobOffre->getTitle(),
                 $jobOffre->getDescription(),
                 $jobOffre->getStatus()
             ]);
             return $this->conn->lastInsertId();
+    } catch (PDOException $e) {
+        echo "failed to create offre".$e->getMessage();
     }
-    catch (PDOExeption $e){
-    echo "failed to create offre".$e->getMessage();
-            }
     }
     public function saveJobSkills($jobOffreId, $skills, $userId) {
         try {
             foreach ($skills as $skillId) {
-                $sql = "INSERT INTO user_skills (user_id, skill_id) VALUES (?, ?)";
+                $sql = "INSERT INTO job_offre_recommended (job_offre_id, tag_id) VALUES (?, ?)";
                 $stmt = $this->conn->prepare($sql);
-                $stmt->execute([$userId, $skillId]);
+                $stmt->execute([$jobOffreId, $skillId]);
             }
             return true;
         } catch (Exception $e) {

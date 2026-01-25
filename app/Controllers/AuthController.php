@@ -1,17 +1,17 @@
 <?php
+
 namespace app\Controllers;
 
-use App\Services\AuthService;
+use app\Services\AuthService;
 
 class AuthController
 {
-    private $AuthService;
-    
+    private $authService;
     public function __construct()
     {
-        $this->AuthService = new AuthService();
+        $this->authService = new AuthService();
     }
-    
+
     public function getRegister()
     {
         require_once './app/resources/views/register.php';
@@ -21,7 +21,7 @@ class AuthController
         require_once './app/resources/views/login.php';
     }
 
-    public function dsAdmin()
+   public function dsAdmin()
     {
         require_once './app/resources/views/dashbordAdmin.php';
     }
@@ -32,6 +32,16 @@ class AuthController
     public function dsRecruteur()
     {
         require_once './app/resources/views/dashbordRecruteur.php';
+    }
+    public function logout()
+    {
+        session_start();
+
+        session_unset();
+        session_destroy();
+
+        header('Location: formLogin');
+        exit;
     }
 
     public function register()
@@ -46,22 +56,23 @@ class AuthController
             $salary_expectation = $_POST['salary_expectation'];
             $company_name = $_POST['company_name'];
 
-            $succes = $this->AuthService->register($firstName, $lastName, $email, $password, $role, $skills, $salary_expectation, $company_name);
-            if ($succes) {
+            $success = $this->authService->register($firstName, $lastName, $email, $password, $role, $skills, $salary_expectation, $company_name);
+            if ($success) {
                 header('Location: formLogin');
                 exit;
             }
         }
     }
     public function login()
-    {
+   {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $role = $this->AuthService->login($email, $password);
-            
+            $role = $this->authService->login($email, $password);
+            var_dump($role);
+
             if ($role === 'admin') {
                 return header('Location: dsAdmin');
             } else if ($role === 'Candidat') {
