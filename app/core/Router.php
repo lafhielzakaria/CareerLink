@@ -1,7 +1,7 @@
 <?php
 
-namespace App\core;
-use App\Controllers\AuthController;
+namespace app\core;
+use app\Controllers\AuthController;
 class Router
 {
     private $routes = [];
@@ -20,7 +20,7 @@ class Router
             $controller = $action[0];
             $method = $action[1];
             
-            $className = "App\\Controllers\\" . $controller;
+            $className = "app\\Controllers\\" . $controller;
             $obj = new $className;
             $obj->$method();
         } else {

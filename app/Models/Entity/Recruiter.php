@@ -1,16 +1,22 @@
 <?php
 namespace App\Models\Entity;
-
-use app\Models\Entity\User;
-
+use App\Models\Entity\User;
 class Recruiter extends User
 {
+    private $id;
+    private $nom;
+    private $email;
+    private $password;
     private $companyName;
-
-
-    public function __construct($nom, $email, $password, $role, $companyName)
+    private $role;
+    public function __construct($name, $email, $password, $role, $companyName)
     {
-        return parent::__construct($nom, $email, $password, $role);
-        $this->companyName = $companyName;
+     $this->name = $name;
+     $this->email = $email;
+     $this->password = $password;
+     $this->role = $role;
+    }
+    static function getId (){
+        return $this->id;
     }
 }

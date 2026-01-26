@@ -194,6 +194,8 @@
                 <p>Your Career Journey Starts Here</p>
             </div>
 
+
+
             <form method="POST" action="login">
                 <div class="form-group">
                     <label for="email">Email Address</label>
@@ -214,6 +216,15 @@
                         placeholder="Enter your password"
                         required>
                 </div>
+
+                <div class="remember-forgot">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#">Forgot password?</a>
+                </div>
+
                 <button type="submit" class="btn-login">Login</button>
             </form>
 
@@ -223,6 +234,7 @@
         </div>
     </div>
 </body>
+
 
 
 </html>
