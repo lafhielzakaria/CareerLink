@@ -194,7 +194,9 @@
                 <p>Your Career Journey Starts Here</p>
             </div>
 
-            <form method="POST" action="../../Controllers/AuthController.php">
+
+
+            <form method="POST" action="login">
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input
@@ -214,15 +216,25 @@
                         placeholder="Enter your password"
                         required>
                 </div>
+
+                <div class="remember-forgot">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#">Forgot password?</a>
+                </div>
+
                 <button type="submit" class="btn-login">Login</button>
             </form>
 
             <div class="signup-link">
-                Don't have an account? <a href="signup.php">Sign up here</a>
+                Don't have an account? <a href="formRegister">Sign up here</a>
             </div>
         </div>
     </div>
 </body>
+
 
 
 </html>

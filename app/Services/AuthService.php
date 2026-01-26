@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace app\Services;
 
-use App\Models\Entity\User;
-use App\Models\Repositories\CandidateRepository;
-use App\Models\Repositories\RecruiterRepository;
-use App\Models\Repositories\UserRepository;
+use app\Models\Entity\User;
+use app\Models\Repositories\CandidateRepository;
+use app\Models\Repositories\RecruiterRepository;
+use app\Models\Repositories\UserRepository;
 
 class AuthService
 {
@@ -60,9 +60,14 @@ class AuthService
         }
 
 
-        if (!password_verify($password, $user->getpassword())) {
+        if (!password_verify($password, $user->getPassword())) {
             return false;
         }
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION['user_id'] = $user->getId();
+        $_SESSION['role'] = $user->getRole();
         $role = $this->userRepo->getRole($user);
 
         return $role;

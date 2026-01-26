@@ -1,20 +1,13 @@
 <?php
-
-
-namespace App\Config;
-
-use Dotenv\Dotenv;
-
-use PDO;
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 class Database
 {
     private static $conn = null;
-    private function construct() {}
-    private function  clone() {}
+    private function __construct() {}
+    private function  __clone() {}
     public static function getConnection()
     {
-
         if (self::$conn === null) {
             $dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
             $dotenv->load();
@@ -32,4 +25,3 @@ class Database
         return self::$conn;
     }
 }
-Database::getConnection();

@@ -71,3 +71,5 @@ create table condidate_apply (
     FOREIGN key (user_id) REFERENCES users (id),
     FOREIGN key (job_offre_id) REFERENCES job_offre (id)
 );
+alter table users
+ ADD column email varchar (50) UNIQUE; 

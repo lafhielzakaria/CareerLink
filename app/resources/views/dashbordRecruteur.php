@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+      <?php
+        use app\Controllers\JobOffreController;
+              $controller = new JobOffreController ();
+             $joboffers =  $controller->getAllJoboffers();
+             var_dump ($joboffers);
+             //jib skills
+
+      ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,18 +37,6 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             padding: 30px;
             margin-bottom: 30px;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .header h1 {
@@ -66,8 +62,8 @@
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             padding: 30px;
-            animation: slideIn 0.3s ease-out;
         }
+
         .card h2 {
             color: #333;
             font-size: 20px;
@@ -89,6 +85,7 @@
         }
 
         input[type="text"],
+        input[type="number"],
         textarea,
         select {
             width: 100%;
@@ -101,6 +98,7 @@
         }
 
         input[type="text"]:focus,
+        input[type="number"]:focus,
         textarea:focus,
         select:focus {
             outline: none;
@@ -126,89 +124,6 @@
 
         .btn:hover {
             transform: translateY(-2px);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-        }
-
-        .job-list {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 30px;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .job-item {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: box-shadow 0.3s;
-        }
-
-        .job-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .job-title {
-            color: #667eea;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .job-description {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .job-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .job-actions .btn {
-            padding: 8px 16px;
-            font-size: 14px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            text-align: center;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .stat-number {
-            font-size: 32px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 14px;
         }
 
         .navbar {
@@ -245,40 +160,28 @@
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .navbar {
-                flex-direction: column;
-                gap: 15px;
-            }
         }
     </style>
 </head>
 <body>
-    <?php
-     use App\Controllers\JoboffreController;
-     $JoboffreController = new JoboffreController ();
-    $skills =  $JoboffreController->getAllSkills ();
-    ?>
     <div class="dashboard-container">
-        <!-- Navigation -->
         <nav class="navbar">
             <div class="logo">CareerLink</div>
-            <div class="user-info">
+            <form action="joboffreController" method="post">
                 <button class="btn">Logout</button>
-            </div>
+                <input hidden  name = "logout">
+            </form>
         </nav>
+        
         <div class="header">
             <h1>Recruiter Dashboard</h1>
             <p>Manage your job offers and track applications</p>
         </div>
+        
         <div class="dashboard-grid">
             <div class="card">
                 <h2>Create New Job Offer</h2>
-                <form action="joboffreController" method="post">
+                <form action="joboffreController" method="post" id = "offreForm">
                     <div class="form-group">
                         <label for="jobTitle">Job Title</label>
                         <input type="text" id="jobTitle" name="jobTitle" placeholder="Enter job title">
@@ -290,34 +193,80 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="category">Category</label>
-                        <select id="category" name="category">
-                            <option value="">Select Category</option>
-                        </select>
-                        <select multiple="multiple" id="skills" name="skills">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills">Skills</label>
+                        <select id="skills" name="skillSelect">
                             <option value="">Select skill</option>
-                            <?php 
-                              foreach ($skills as $skill){
-                            
-                              }
-                            ?>
+                            <option value="1">PHP</option>
+                            <option value="2">CSS</option>
+                            <option value="3">JavaScript</option>
                         </select>
+                        <div id="selectedSkills" style="margin-top: 10px;"></div>
+                        <input type="hidden" name="skills" id="skillsArray" value="">
                     </div>
                     
                     <div class="form-group">
                         <label for="salary">Salary Range</label>
-                        <input type="text" id="salary" name="salary" placeholder="Enter the salary range">
+                        <input type="number" id="salary" name="salary" placeholder="Enter the salary range">
                     </div>
                     
                     <div class="form-group">
                         <label for="location">Location</label>
                         <input type="text" id="location" name="location" placeholder="Enter job location">
                     </div>
+                    
                     <button type="submit" class="btn">Create Job Offer</button>
                 </form>
             </div>
         </div>
-    <div class="job-list"></div>
     </div>
+  
+    <script>
+           const Validate_Rules = {
+    jobTitle: {
+        regex: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{3,}$/,
+        errormessage: "invilade job title name"
+    },
+    offreDescription: {
+                regex: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{3,}$/,
+            errormessage: "invilade joboffredescription"
+    }, 
+    salary: {
+        regex:  /^\d+$/,
+        errormessage: "invilade salary range"
+    },
+    location: {
+        regex: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{3,}$/,
+        errormessage: "invilade location"
+    },
+    
+};
+        let selectedSkills = [];
+          
+        document.getElementById('skills').addEventListener('change', function() {
+            const skillId = this.value;
+            const skillText = this.options[this.selectedIndex].text;
+            
+            if (skillId && !selectedSkills.includes(skillId)) {
+                selectedSkills.push(skillId);
+                
+                const skillDiv = document.createElement('div');
+                skillDiv.innerHTML = `${skillText} <button type="button" onclick="removeSkill('${skillId}', this)">Remove</button>`;
+                skillDiv.style.cssText = 'padding: 5px; margin: 2px; background: #f0f0f0; display: inline-block;';
+                document.getElementById('selectedSkills').appendChild(skillDiv);
+                document.getElementById('skillsArray').value = selectedSkills.join(',');
+            }
+            
+            this.value = '';
+        });
+         
+        function removeSkill(skillId, button) {
+            selectedSkills = selectedSkills.filter(id => id !== skillId);
+            button.parentElement.remove();
+            document.getElementById('skillsArray').value = selectedSkills.join(',');
+        }
+    </script>
 </body>
 </html>
