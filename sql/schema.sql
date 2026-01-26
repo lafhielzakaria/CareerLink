@@ -17,7 +17,7 @@ CREATE TABLE users (
     last_name VARCHAR(50),
     email VARCHAR(50) UNIQUE,
     password VARCHAR(255),
-    role_id VARCHAR(50),
+    role_id INT,
     FOREIGN KEY (role_id) REFERENCES roles (id)
 );
 
@@ -32,11 +32,6 @@ CREATE TABLE recruiters (
     user_id INT PRIMARY KEY,
     company_name VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES users (id)
-);
-
-CREATE TABLE roles (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL
 );
 
 create table category (

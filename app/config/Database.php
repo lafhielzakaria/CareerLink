@@ -16,7 +16,7 @@ class Database
     {
 
         if (self::$conn === null) {
-            $dotenv = Dotenv::createImmutable(DIR . '/../..');
+            $dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
             $dotenv->load();
             $dbhost = $_ENV["host"];
             $dbUser = $_ENV["userName"];

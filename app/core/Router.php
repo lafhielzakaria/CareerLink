@@ -1,7 +1,6 @@
 <?php
 
 namespace App\core;
-use App\Controllers\AuthController;
 class Router
 {
     private $routes = [];
@@ -19,9 +18,7 @@ class Router
             
             $controller = $action[0];
             $method = $action[1];
-            
-            $className = "App\\Controllers\\" . $controller;
-            $obj = new $className;
+            $obj = new $controller;
             $obj->$method();
         } else {
             http_response_code(404);
