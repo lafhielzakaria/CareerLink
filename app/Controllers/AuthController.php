@@ -1,8 +1,8 @@
 <?php
+namespace App\Controllers;
 
-namespace app\Controllers;
-
-use app\Services\AuthService;
+use App\Services\AuthService;
+use App\Controllers\InputController;
 
 class AuthController
 {
@@ -10,6 +10,11 @@ class AuthController
     public function __construct()
     {
         $this->authService = new AuthService();
+    }
+
+    public function getCategory()
+    {
+        require_once './app/resources/views/formCategory.php';
     }
 
     public function getRegister()
