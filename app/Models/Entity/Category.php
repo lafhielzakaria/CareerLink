@@ -5,9 +5,10 @@ class Category
     private $id;
     private $title;
     private $tags;
-    public function addTag(){
-        
-    } 
+    public function addTag()
+    {
+
+    }
     public function __construct($title)
     {
         $this->title = $title;
@@ -25,5 +26,10 @@ class Category
     {
         $this->title = $title;
     }
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
 
 }

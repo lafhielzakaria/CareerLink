@@ -15,8 +15,10 @@ $url = trim($url, '/');
 $router = new Router();
 $router->add('formRegister', [AuthController::class, 'getRegister']);
 $router->add('register', [AuthController::class, 'register']);
-$router->add('formCategory', [AuthController::class, 'getCategory']);
-$router->add('AddCategory', [InputController::class, 'inputHandel']);
+$router->add('category/add', [InputController::class, 'categoryAddInput']);
+$router->add('category/edit', [InputController::class, 'categoryEditInput']);
+$router->add('category/search', [InputController::class, 'searchCategory']);
+
 //$router->add('', ['AuthController', 'login']);
 $router->add('formLogin', [AuthController::class, 'getLogin']);
 $router->add('login', [AuthController::class, 'login']);
