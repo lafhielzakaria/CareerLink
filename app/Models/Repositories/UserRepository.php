@@ -1,4 +1,5 @@
 <?php
+
 namespace app\Models\Repositories;
 
 use App\config\Database;
@@ -70,5 +71,14 @@ class UserRepository
             $user['role_id']
         );
         return $objectUser;
+    }
+    public function applyCommande($userId, $jobId)
+    {
+        $stmt = $this->conn->prepare("INSERT INTO condidate_apply (user_id, job_offre_id) VALUES (:user_id, :job_id)");
+        $stmt->execute([
+            'user_id' => $userId,
+            'job_id' => $jobId
+        ]);
+        return true;
     }
 }

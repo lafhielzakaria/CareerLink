@@ -83,4 +83,23 @@ class AuthController
             }
         }
     }
+    public function applyCommande()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            session_start();
+
+            $userId = $_SESSION['user_id'];
+            $jobId = $_POST['job_id'];
+
+
+            $succes = $this->AuthService->applyCommande($jobId, $userId);
+
+
+            if ($succes) {
+
+                header('Location: dsCandidate');
+                exit;
+            }
+        }
+    }
 }

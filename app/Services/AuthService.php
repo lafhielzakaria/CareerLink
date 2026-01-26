@@ -71,4 +71,13 @@ class AuthService
 
         return $role;
     }
+    public function applyCommande($jobId, $userId)
+    {
+        if (!$userId || !$jobId) {
+            http_response_code(400);
+            echo 'Missing user or job id';
+            exit;
+        }
+        $applyDone = $this->userRepo->applyCommande($userId, $jobId);
+    }
 }

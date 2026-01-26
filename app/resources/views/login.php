@@ -194,7 +194,7 @@
                 <p>Your Career Journey Starts Here</p>
             </div>
 
-            <form method="POST" action="../../Controllers/AuthController.php">
+            <form method="POST" action="login">
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input
