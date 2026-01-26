@@ -397,7 +397,10 @@
                         <p><i class="fas fa-dollar-sign"></i> $120,000 - $160,000/year</p>
                     </div>
                     <div class="job-actions">
-                        <button class="apply-btn"><i class="fas fa-paper-plane"></i> Apply</button>
+                        <form action="/apply" method="POST" style="display:inline">
+                            <input type="hidden" name="job_id" value="1">
+                            <button class="apply-btn" type="submit"><i class="fas fa-paper-plane"></i> Apply</button>
+                        </form>
                         <button class="view-btn"><i class="fas fa-eye"></i> View</button>
                     </div>
                 </div>
@@ -410,7 +413,10 @@
                         <p><i class="fas fa-dollar-sign"></i> $100,000 - $130,000/year</p>
                     </div>
                     <div class="job-actions">
-                        <button class="apply-btn"><i class="fas fa-paper-plane"></i> Apply</button>
+                        <form action="/apply" method="POST" style="display:inline">
+                            <input type="hidden" name="job_id" value="2">
+                            <button class="apply-btn" type="submit"><i class="fas fa-paper-plane"></i> Apply</button>
+                        </form>
                         <button class="view-btn"><i class="fas fa-eye"></i> View</button>
                     </div>
                 </div>
@@ -423,7 +429,10 @@
                         <p><i class="fas fa-dollar-sign"></i> $110,000 - $150,000/year</p>
                     </div>
                     <div class="job-actions">
-                        <button class="apply-btn"><i class="fas fa-paper-plane"></i> Apply</button>
+                        <form action="apply" method="POST" style="display:inline">
+                            <input type="hidden" name="job_id" value="3">
+                            <button class="apply-btn" type="submit"><i class="fas fa-paper-plane"></i> Apply</button>
+                        </form>
                         <button class="view-btn"><i class="fas fa-eye"></i> View</button>
                     </div>
                 </div>

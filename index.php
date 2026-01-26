@@ -24,6 +24,7 @@ $router->add('dsAdmin', ['AuthController', 'dsAdmin']);
 $router->add('dsRecruteur', ['AuthController', 'dsRecruteur']);
 $router->add('dsCandidate', ['AuthController', 'dsCandidate']);
 $router->add('logout', ['AuthController', 'logout']);
+$router->add('apply', ['AuthController', 'applyCommande']);
 $router->add('joboffreController', ['JoboffreController', 'create']);
 
 $router->dispatch($url);
