@@ -2,7 +2,6 @@
 namespace App\Controllers;
 
 use App\Services\AuthService;
-use App\Controllers\InputController;
 
 class AuthController
 {
@@ -13,9 +12,13 @@ class AuthController
         $this->authService = new AuthService();
     }
 
-    public function getCategory()
+    public function category()
     {
         require_once './app/resources/views/formCategory.php';
+    }
+    public function categorySearch()
+    {
+        require_once './app/resources/views/categorySearch.php';
     }
 
     public function getRegister()

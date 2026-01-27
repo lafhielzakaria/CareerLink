@@ -10,5 +10,6 @@
         <input name="title" type="text">
         <input type="submit" name="AddCategory" value="AddCategory">
     </form>
+    <a href="categorySearch">search</a>
 </body>
 </html>

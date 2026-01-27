@@ -22,6 +22,7 @@ class InputController
 
     public function categoryAddInput()
     {
+        
         $form_errors = [];
         $title = trim($_POST['title'] ?? '');
 
